@@ -77,7 +77,8 @@ const AuthForm = () =>{
                         id="name" 
                         label="Name" 
                         register={register}
-                        errors={errors}/>
+                        errors={errors}
+                        disabled={isLoading}/>
                     )}
 
                     <Input 
@@ -86,6 +87,7 @@ const AuthForm = () =>{
                         type="email"
                         register={register}
                         errors={errors}
+                        disabled={isLoading}
                     />
                     <Input 
                         id="password" 
@@ -93,6 +95,7 @@ const AuthForm = () =>{
                         type="password"
                         register={register}
                         errors={errors}
+                        disabled={isLoading}
                     />
                     <div>
                         <Button
@@ -100,7 +103,7 @@ const AuthForm = () =>{
                             fullWidth
                             type="submit"
                         >
-                            {variant === 'LOGIN'? 'Sign in' : 'register'}
+                            {variant === 'LOGIN'? 'Sign in' : 'Sign up'}
                         </Button>
                     </div>
 
