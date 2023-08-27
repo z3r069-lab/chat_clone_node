@@ -4,6 +4,7 @@ import useRoutes from "@/app/hooks/userRoutes";
 import React, { useState } from "react";
 import DesktopItem from "./DesktopItem";
 import { User } from "@prisma/client";
+import Avatar from "../Avatar";
 
 interface DesktopSidebarProps{
     currentUser: User
@@ -79,7 +80,7 @@ const DesktopSidebar: React.FC<DesktopSidebarProps> = ({
                   hover:opacity-75
                   transition
                 ">
-
+                 <Avatar user={currentUser}/>   
                 </div>
             </nav>
         </div>
