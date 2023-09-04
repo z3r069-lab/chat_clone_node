@@ -71,6 +71,8 @@ const ConversationList: React.FC<ConversationListProps> = ({
       setItems((current) => {
         return [...current.filter((convo) => convo.id !== conversation.id)]
       });
+
+      if(conversationId == conversation.id) router.push('/conversations')
     }
 
     pusherClient.bind('conversation:update', updateHandler)
@@ -81,10 +83,10 @@ const ConversationList: React.FC<ConversationListProps> = ({
     return () => {
       pusherClient.unsubscribe(pusherKey);
       pusherClient.unbind('conversation:update', updateHandler)
-    pusherClient.unbind('conversation:new', newHandler)
-    pusherClient.unbind('conversation:remove', removeHandler)
+      pusherClient.unbind('conversation:new', newHandler)
+      pusherClient.unbind('conversation:remove', removeHandler)
     }
-  }, [pusherKey, router]);
+  }, [pusherKey, router, conversationId]);
 
 
 
